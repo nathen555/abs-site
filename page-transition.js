@@ -10,7 +10,7 @@
         document.body.classList.add('page-arrival');
     }
 
-    document.querySelectorAll('.navbar nav a[href="contact.html"], .navbar nav a[href="index.html"]').forEach(function (link) {
+    document.querySelectorAll('.navbar nav a[href="contact.html"], .navbar nav a[href="index.html"], .navbar nav a[href="agent.html"], .navbar nav a[href="opportunities.html"], .navbar nav a[href="calendar.html"]').forEach(function (link) {
         link.addEventListener('click', function (event) {
             if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
                 return;

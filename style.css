@@ -324,9 +324,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 42vw;
     max-width: 100%;
     justify-self: end;
-    border-radius: 15px;
-    border-color: #a3a3a3;
-    border: 2px solid;
+    border: 1px solid #bdbdbd;
     margin: 0;
     box-sizing: border-box;
 }

@@ -1,0 +1,91 @@
+.opportunities-section {
+    width: min(1200px, calc(100% - 64px));
+    margin: 0 auto;
+    padding: 110px 0 140px;
+}
+
+.opportunities-heading {
+    max-width: 760px;
+    margin-bottom: 56px;
+}
+
+.opportunities-heading p {
+    margin: 0 0 18px;
+    color: #777777;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+}
+
+.opportunities-heading h2 {
+    margin: 0;
+    color: #000000;
+    font-size: clamp(34px, 5vw, 68px);
+    font-weight: 400;
+    line-height: 1.05;
+}
+
+.opportunities-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+}
+
+.opportunity-card {
+    min-height: 330px;
+    padding: 28px;
+    border-top: 2px solid #000000;
+    background: #f1f1f1;
+    display: flex;
+    flex-direction: column;
+}
+
+.opportunity-card:hover {
+    background: #e7e7e7;
+}
+
+.opportunity-number {
+    color: #777777;
+    font-size: 13px;
+}
+
+.opportunity-card h3 {
+    margin: 58px 0 18px;
+    color: #000000;
+    font-size: 25px;
+    font-weight: 500;
+    text-align: left;
+}
+
+.opportunity-card p {
+    margin: 0;
+    color: #555555;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.opportunity-card a {
+    margin-top: auto;
+    padding-top: 30px;
+    color: #000000;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.opportunity-card a:hover {
+    color: #777777;
+}
+
+@media (max-width: 850px) {
+    .opportunities-section {
+        width: calc(100% - 40px);
+    }
+
+    .opportunities-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .opportunity-card {
+        min-height: 260px;
+    }
+}

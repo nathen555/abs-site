@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="ABS-favicon-fit.png?v=2">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="calendar.css">
+    <title>ABS Calendar</title>
+</head>
+<body class="calendar-page">
+    <main class="hero-section">
+        <video class="background-video" autoplay muted loop playsinline aria-hidden="true">
+            <source src="fluid.mp4" type="video/mp4">
+        </video>
+
+        <div class="navbar reveal reveal-delay-1">
+            <a href="index.html"><img class="logo" src="ABS.png" alt="ABS Logo"></a>
+            <nav aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="agent.html">Agents</a></li>
+                    <li><a href="opportunities.html">Opportunities</a></li>
+                    <li><a href="calendar.html">Calendar</a></li>
+                </ul>
+            </nav>
+            <a class="login-btn" href="https://forms.gle/dBHZ4mhshcrH3UJD6">JOIN US</a>
+        </div>
+
+        <h1 class="reveal reveal-delay-2">WHAT&apos;S HAPPENING NEXT.</h1>
+        <div class="subtitle reveal reveal-delay-3">Keep track of sessions, workshops, deadlines, and opportunities.</div>
+    </main>
+
+    <main class="calendar-main">
+        <section class="calendar-intro reveal">
+            <p class="calendar-eyebrow">ASSOCIATION OF BUSINESS &amp; SALES / CALENDAR</p>
+            <h1>What&apos;s happening next.</h1>
+            <p>Keep track of sessions, workshops, deadlines, and opportunities.</p>
+        </section>
+
+        <section class="calendar-layout reveal" aria-label="Event calendar">
+            <div class="calendar-panel">
+                <div class="calendar-toolbar">
+                    <button class="month-button" id="previous-month" type="button" aria-label="Previous month">&larr;</button>
+                    <h2 id="month-label"></h2>
+                    <button class="month-button" id="next-month" type="button" aria-label="Next month">&rarr;</button>
+                </div>
+                <div class="weekday-row" aria-hidden="true">
+                    <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+                </div>
+                <div class="calendar-grid" id="calendar-grid"></div>
+            </div>
+
+            <aside class="event-panel">
+                <p class="calendar-eyebrow">UPCOMING</p>
+                <div id="event-list" class="event-list"></div>
+            </aside>
+        </section>
+
+        <button class="admin-toggle admin-access" id="admin-toggle" type="button" aria-expanded="false">Admin access</button>
+
+        <section class="admin-panel reveal" id="admin-panel" hidden>
+            <div class="admin-heading">
+                <div>
+                    <p class="calendar-eyebrow">ADMIN MODE</p>
+                    <h2>Set a calendar date.</h2>
+                </div>
+                <button id="close-admin" class="text-button" type="button">Close</button>
+            </div>
+            <form id="event-form" class="event-form">
+                <input id="event-id" type="hidden">
+                <label for="event-date">Date</label>
+                <input id="event-date" type="date" required>
+
+                <label for="event-title">Event name</label>
+                <input id="event-title" type="text" placeholder="Business workshop" required>
+
+                <label for="event-time">Time or range</label>
+                <input id="event-time" type="text" placeholder="3:30 PM - 5:00 PM">
+
+                <label for="event-details">Details</label>
+                <textarea id="event-details" rows="4" placeholder="Add a location, topic, or note."></textarea>
+
+                <div class="form-actions">
+                    <button class="primary-button" type="submit">Save event</button>
+                    <button class="text-button" id="clear-form" type="button">Clear</button>
+                </div>
+            </form>
+            <div class="admin-events" id="admin-events"></div>
+        </section>
+    </main>
+
+    <footer class="calendar-footer reveal">
+        <img src="ABS.png" alt="ABS Logo">
+        <span>&copy; 2026 Association of Business &amp; Sales</span>
+    </footer>
+
+    <script src="calendar.js"></script>
+    <script src="scroll-reveal.js"></script>
+    <script src="page-transition.js"></script>
+</body>
+</html>
