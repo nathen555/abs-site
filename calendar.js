@@ -166,6 +166,11 @@
     });
     document.getElementById('clear-form').addEventListener('click', clearForm);
     adminToggle.addEventListener('click', toggleAdmin);
+    document.getElementById('close-admin').addEventListener('click', function () {
+        adminPanel.hidden = true;
+        adminToggle.setAttribute('aria-expanded', 'false');
+        adminToggle.textContent = 'Admin access';
+    });
 
     function renderAll() {
         renderCalendar();
