@@ -238,6 +238,39 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 20px;
 }
 
+@media (max-width: 700px) {
+    .navbar {
+        flex-wrap: wrap;
+        gap: 14px;
+        padding: 14px 16px;
+    }
+
+    .navbar nav {
+        order: 3;
+        flex-basis: 100%;
+    }
+
+    .navbar nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .navbar nav ul li a {
+        padding: 7px 8px;
+        font-size: 13px;
+    }
+
+    .logo {
+        height: 42px;
+    }
+
+    .login-btn {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+}
+
 .login-btn {
     background-color: transparent;
     border: 1px solid #000000;
