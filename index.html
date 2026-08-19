@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="ABS-favicon-fit.png?v=2">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,34 +13,49 @@
             <source src="fluid.mp4" type="video/mp4">
         </video>
 
-        <div class="navbar">
+        <div class="navbar reveal reveal-delay-1">
             <a href="index.html"><img class="logo" src="ABS.png" alt="ABS Logo"></a>
             <nav>
               <ul>
                  <li><a href="index.html">Home</a></li>
-                 <li><a href="https://heroisgay.com">About</a></li>
-                 <li><a href="https://heroisgay.com">Contact</a></li>
+                 <li><a href="contact.html">Contact</a></li>
                  <li><a href="https://heroisgay.com">Agents</a></li>
                  <li><a href="https://heroisgay.com">Opportunities</a></li>
              </ul>
          </nav>
-            <button class="login-btn">Login</button>
-            <a href="#" class="register-btn">Register</a>
+            <a class="login-btn" href="https://forms.gle/dBHZ4mhshcrH3UJD6">JOIN US</a>
+            
             </div>
 
-        <h1>BUILD. INNOVATE. LEAD.</h1>
-        <div class="subtitle">ABS is an advanced business club at Lowell that teaches what school doesn’t — programming, AI, stock analysis, entrepreneurship, <br> business, sales and the skills that actually matter after graduation.</div>
+        <h1 class="reveal reveal-delay-2">BUILD. INNOVATE. LEAD.</h1>
+        <div class="subtitle reveal reveal-delay-3">ABS is an advanced business club at Lowell that teaches what school doesn’t — AI, stock analysis, entrepreneurship, <br> business, sales and the skills that actually matter after graduation.</div>
     </main>
-    <div class="subtitle2">STARTING SOMETHING NEW</div>
-    <div class="subtitle3">://A NEW ERA OF BUSINESS</div>
-    <div class="image">
+    <div class="subtitle2 reveal">[STARTING SOMETHING NEW]</div>
+    <div class="subtitle3 reveal">://A NEW ERA OF BUSINESS</div>
+    <div class="image reveal">
         <img src="larp.png" alt="Line" class="line">
         <div class="text-box">
-            <div class="subtitle4">YOUR TEXT HERE</div>
+            <div class="subtitle4">ABS is a sophisticated business club that teaches what business is about. It has multiple aspects and areas in business such as sales, management, tech, AI, finance, stocks, and how to handle money. We dive deep in many of these topics for youth who are interested and excel in that area.  <br> <br> We also have basic skills for people who haven’t been connected to money who want to start but are too afraid of exploring something new. Remember this: the first rule in business is to be brave — not reckless, but brave.</div>
         </div>
     </div>
+    <div class ="subtitle5 reveal">Every session is hands-on, project-driven, as we have consultants who are masters in different areas along with one-to-one teaching sessions for beginners about the basic rules of business. We have programs that use digital currency on a real-basis market for simulation and training for investment. We also have learning videos from large company owners who teach us about the world market as a whole. No boring slideshows! Just your full interest!</div>
+    <footer class="bottom-navbar reveal">
+        <img class="footer-logo" src="ABS.png" alt="ABS Logo">
+        <div>© 2026 Association of Business & Sales</div>
+    </footer>
     <script>
         document.querySelector('.background-video').playbackRate = 0.75;
     </script>
+        <script>
+                document.querySelectorAll('.faq-toggle').forEach(function(button) {
+                    button.addEventListener('click', function() {
+                        var isExpanded = this.getAttribute('aria-expanded') === 'true';
+                        this.setAttribute('aria-expanded', String(!isExpanded));
+                        this.classList.toggle('is-open', !isExpanded);
+                    });
+                });
+        </script>
+        <script src="./scroll-reveal.js"></script>
+        <script src="./page-transition.js"></script>
 </body>
 </html>

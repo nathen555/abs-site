@@ -1,3 +1,144 @@
+.contact-page {
+    background: #ffffff;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.contact-page > .title {
+    margin: 100px 0 0;
+    padding: 0 100px;
+    color: #000000;
+    font-size: 50px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.contact-page > .subtitle {
+    margin: 20px 0 0;
+    padding: 0 100px;
+    color: #000000;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 25px;
+    text-align: left;
+}
+
+.contact-grid {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin: 80px 0;
+    padding: 0 100px;
+}
+
+.contact-card {
+    width: 320px;
+    min-height: 280px;
+    box-sizing: border-box;
+    border: 1px solid #2a2a2a;
+    border-radius: 10px;
+    padding: 28px;
+    background: linear-gradient(0deg, #4a4a4a 0%, #1f1f1f 50%, #000000 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contact-card h2 {
+    color: #ffffff;
+}
+
+.contact-title h2,
+.contact-item h3 {
+    color: #000000;
+}
+
+.contact-card h2 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.card-content p,
+.contact-item p {
+    color: #555555;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.contact-section {
+    width: min(670px, calc(100% - 40px));
+    margin: 120px 100px 40px auto;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.contact-title h2 {
+    margin: 0;
+    font-size: 32px;
+}
+
+.contact-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-item {
+    border-top: 1px solid #d0d0d0;
+    padding: 32px 0;
+}
+
+.contact-item h3 {
+    margin: 0 0 10px;
+    font-size: 24px;
+}
+
+.contact-item p {
+    margin: 0 0 12px;
+}
+
+.contact-item a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    color: #555555;
+}
+
+@media (max-width: 1000px) {
+    .contact-page > .title,
+    .contact-page > .subtitle {
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    .contact-grid {
+        justify-content: center;
+        padding: 0 20px;
+    }
+
+    .contact-section {
+        width: calc(100% - 40px);
+        margin: 80px auto 40px;
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 620px) {
+    .contact-page > .title {
+        font-size: 38px;
+    }
+
+    .contact-page > .subtitle {
+        font-size: 21px;
+    }
+
+    .contact-card {
+        width: min(100%, 420px);
+    }
+}
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
 html {
@@ -15,115 +156,6 @@ body {
     background-color: #ffffff;
     min-height: 100vh;
     overflow-x: hidden;
-}
-
-.page-transition {
-    position: fixed;
-    inset: 0;
-    z-index: 99999;
-    pointer-events: none;
-    overflow: hidden;
-    opacity: 0;
-}
-
-.page-transition-panel {
-    position: absolute;
-    inset: -25% -40%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #090909 0%, #270405 45%, #8d1018 100%);
-    transform: translateX(-125%) skewX(-12deg);
-}
-
-.page-transition-copy {
-    color: #ffffff;
-    text-align: center;
-    opacity: 0;
-    transform: translateY(18px) skewX(12deg);
-}
-
-.page-transition-copy .transition-logo,
-.page-transition-copy span {
-    display: block;
-}
-
-.page-transition-copy .transition-logo {
-    width: min(280px, 42vw);
-    height: auto;
-    margin: 0 auto;
-    filter: invert(1);
-}
-
-.page-transition-copy strong {
-    font-size: clamp(42px, 8vw, 92px);
-    font-weight: 400;
-    letter-spacing: 0.08em;
-}
-
-.page-transition-copy span {
-    margin-top: 12px;
-    font-size: clamp(11px, 1.5vw, 18px);
-    letter-spacing: 0.18em;
-}
-
-.page-transition.is-active {
-    opacity: 1;
-}
-
-.page-transition.is-active .page-transition-panel {
-    animation: diagonal-wipe 1500ms cubic-bezier(0.76, 0, 0.24, 1) forwards;
-}
-
-.page-transition.is-active .page-transition-copy {
-    animation: transition-title 300ms ease 230ms forwards;
-}
-
-body.page-arrival > *:not(script) {
-    animation: page-arrival 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-@keyframes diagonal-wipe {
-    0% {
-        opacity: 1;
-        transform: translateX(-125%) skewX(-12deg);
-    }
-    48%, 62% {
-        opacity: 1;
-        transform: translateX(0) skewX(-12deg);
-    }
-    100% {
-        opacity: 0;
-        transform: translateX(125%) skewX(-12deg);
-    }
-}
-
-@keyframes transition-title {
-    to {
-        opacity: 1;
-        transform: translateY(0) skewX(12deg);
-    }
-}
-
-@keyframes page-arrival {
-    from {
-        opacity: 0;
-        transform: translateY(24px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .page-transition {
-        display: none;
-    }
-
-    body.page-arrival > *:not(script) {
-        animation: none;
-    }
 }
 
 .reveal {
@@ -296,77 +328,6 @@ h1, h2, h3, h4, h5, h6 {
     padding-top: 100px;
 }
 
-.subtitle3 {
-    width: 50vw;
-    box-sizing: border-box;
-    text-align: right;
-    font-size: 18px;
-    color: #7c7b7b;
-    padding: 0 20px 0 0;
-    font-family: 'IBM Plex Mono', monospace;
-    margin: 20px 0 0;
-    display: block;
-}
-
-.image {
-    display: grid;
-    grid-template-columns: 50vw 50vw;
-    align-items: start;
-    gap: 0;
-    width: 100vw;
-    max-width: none;
-    margin: 20px 0 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.line {
-    width: 42vw;
-    max-width: 100%;
-    justify-self: end;
-    border-radius: 15px;
-    border-color: #a3a3a3;
-    border: 2px solid;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-.text-box {
-    width: auto;
-    min-width: 0;
-    padding: 0 40px;
-}
-
-@media (max-width: 900px) {
-    .image {
-        grid-template-columns: 1fr;
-    }
-
-    .line {
-        width: 100%;
-        justify-self: stretch;
-    }
-}
-
-.subtitle4 {
-    color: #000000;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 18px;
-    line-height: 1.6;
-}
-
-.subtitle5 {
-    color: #000000;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 1.6;
-    text-align: center;
-    margin-top: 40px;
-    margin-left:40px;
-    margin-right:40px;
-}
-
 .bottom-navbar {
     display: flex;
     justify-content: center;
@@ -389,48 +350,113 @@ h1, h2, h3, h4, h5, h6 {
     filter: brightness(0) invert(1);
 }
 
-.inquiry-section,
-.channels-section,
-.faq-section {
-    width: min(1180px, calc(100% - 64px));
-    margin: 0 auto;
-    padding: 100px 0;
+/* Contact page visual system */
+.contact-page {
+    --contact-ink: #f4f1ea;
+    --contact-muted: #aaa69d;
+    --contact-line: #34342f;
+    --contact-accent: #ff5a36;
+    background: #11110f;
+    background-color: #11110f;
+    color: var(--contact-ink);
 }
 
-.inquiry-section,
-.channels-section {
-    border-bottom: 1px solid #d8d8d8;
+.contact-hero {
+    position: relative;
+    height: 520px;
+    overflow: hidden;
+    isolation: isolate;
 }
 
+.contact-content {
+    position: relative;
+    z-index: 1;
+    padding-bottom: 1px;
+    background: #11110f;
+}
+
+.contact-content .navbar,
+.contact-hero-copy {
+    position: relative;
+    z-index: 1;
+}
+
+.contact-content .navbar {
+    background: rgba(244, 241, 234, 0.94);
+}
+
+.contact-hero-copy {
+    max-width: 980px;
+    margin: 150px auto 0;
+    padding: 0 32px;
+}
+
+.eyebrow,
 .section-label {
-    color: #666666;
+    color: var(--contact-accent);
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
 }
 
+.contact-hero-copy h1 {
+    max-width: 900px;
+    margin: 24px 0;
+    padding: 0;
+    color: var(--contact-ink);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: clamp(48px, 8vw, 112px);
+    font-weight: 400;
+    line-height: 0.98;
+    text-align: left;
+}
+
+.contact-hero-copy > p:last-child {
+    max-width: 510px;
+    margin: 0;
+    color: var(--contact-muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.inquiry-section,
+.channels-section,
+.faq-section {
+    width: min(1180px, calc(100% - 64px));
+    margin: 0 auto;
+    padding: 120px 0;
+}
+
+.inquiry-section,
+.channels-section {
+    border-bottom: 1px solid var(--contact-line);
+}
+
 .inquiry-layout {
     display: grid;
     grid-template-columns: 0.85fr 1.15fr;
     gap: 100px;
-    margin-top: 48px;
+    margin-top: 52px;
 }
 
 .inquiry-intro h2 {
     max-width: 440px;
     margin: 0 0 20px;
-    color: #000000;
+    color: var(--contact-ink);
+    font-family: 'IBM Plex Mono', monospace;
     font-size: clamp(32px, 4vw, 58px);
     font-weight: 400;
     line-height: 1.05;
 }
 
-.inquiry-intro p,
-.faq-list details p {
-    max-width: 420px;
+.inquiry-intro p {
+    max-width: 360px;
     margin: 0;
-    color: #555555;
+    color: var(--contact-muted);
+    font-family: 'IBM Plex Mono', monospace;
     line-height: 1.7;
 }
 
@@ -440,42 +466,48 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .inquiry-form label {
-    margin-bottom: 10px;
-    color: #555555;
+    margin: 0 0 10px;
+    color: var(--contact-muted);
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 13px;
 }
 
 .inquiry-form input,
 .inquiry-form textarea {
     width: 100%;
-    margin-bottom: 28px;
+    margin: 0 0 28px;
     padding: 14px 0;
     border: 0;
-    border-bottom: 1px solid #cfcfcf;
+    border-bottom: 1px solid var(--contact-line);
     outline: none;
     resize: vertical;
     background: transparent;
-    color: #000000;
+    color: var(--contact-ink);
     font: 16px 'IBM Plex Mono', monospace;
 }
 
 .inquiry-form input:focus,
 .inquiry-form textarea:focus {
-    border-bottom-color: #000000;
+    border-bottom-color: var(--contact-accent);
 }
 
 .inquiry-form button {
     align-self: flex-start;
     padding: 15px 20px;
     border: 0;
-    background: #000000;
-    color: #ffffff;
+    background: var(--contact-accent);
+    color: #11110f;
     cursor: pointer;
     font: 600 14px 'IBM Plex Mono', monospace;
+    transition: background 200ms ease, transform 200ms ease;
 }
 
-.channel-list,
-.faq-list {
+.inquiry-form button:hover {
+    background: #ff795c;
+    transform: translateY(-2px);
+}
+
+.channel-list {
     margin-top: 44px;
 }
 
@@ -484,41 +516,34 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: space-between;
     gap: 24px;
     padding: 22px 0;
-    border-top: 1px solid #d8d8d8;
-    color: #000000;
-    font-size: 18px;
+    border-top: 1px solid var(--contact-line);
+    color: var(--contact-ink);
+    font: 18px 'IBM Plex Mono', monospace;
     text-decoration: none;
 }
 
-.copy-email {
-    width: 100%;
-    border-right: 0;
-    border-bottom: 0;
-    border-left: 0;
-    background: transparent;
-    cursor: copy;
-    font: inherit;
-    text-align: left;
-}
-
 .channel-item span:last-child {
-    color: #666666;
+    color: var(--contact-muted);
     text-align: right;
 }
 
 .channel-item:hover span:last-child {
-    color: #000000;
+    color: var(--contact-accent);
+}
+
+.faq-list {
+    margin-top: 44px;
 }
 
 .faq-list details {
-    border-top: 1px solid #d8d8d8;
+    border-top: 1px solid var(--contact-line);
 }
 
 .faq-list summary {
     padding: 24px 0;
-    color: #000000;
+    color: var(--contact-ink);
     cursor: pointer;
-    font-size: 18px;
+    font: 18px 'IBM Plex Mono', monospace;
     list-style: none;
 }
 
@@ -529,6 +554,7 @@ h1, h2, h3, h4, h5, h6 {
 .faq-list summary::after {
     content: "+";
     float: right;
+    color: var(--contact-accent);
     font-size: 24px;
 }
 
@@ -537,10 +563,27 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .faq-list details p {
+    max-width: 680px;
     margin: 0 0 24px;
+    color: var(--contact-muted);
+    font: 16px/1.7 'IBM Plex Mono', monospace;
+}
+
+.contact-page .bottom-navbar {
+    margin-top: 0;
+    background: #f4f1ea;
+    color: #11110f;
 }
 
 @media (max-width: 800px) {
+    .contact-hero {
+        height: 420px;
+    }
+
+    .contact-hero-copy {
+        margin-top: 110px;
+    }
+
     .inquiry-layout {
         grid-template-columns: 1fr;
         gap: 60px;
@@ -548,11 +591,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 620px) {
+    .contact-hero-copy,
     .inquiry-section,
     .channels-section,
     .faq-section {
         width: calc(100% - 40px);
-        padding: 70px 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .contact-hero-copy h1 {
+        font-size: 46px;
     }
 
     .channel-item {
@@ -564,4 +613,3 @@ h1, h2, h3, h4, h5, h6 {
         text-align: left;
     }
 }
-

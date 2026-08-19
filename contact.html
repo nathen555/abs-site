@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="ABS-favicon-fit.png?v=2">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="hero-section">
+        <video class="background-video" autoplay muted loop playsinline aria-hidden="true">
+            <source src="fluid.mp4" type="video/mp4">
+        </video>
+
+        <div class="navbar reveal reveal-delay-1">
+            <a href="index.html"><img class="logo" src="ABS.png" alt="ABS Logo"></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="https://heroisgay.com">Agents</a></li>
+                    <li><a href="https://heroisgay.com">Opportunities</a></li>
+                </ul>
+            </nav>
+            <a class="login-btn" href="https://forms.gle/dBHZ4mhshcrH3UJD6">JOIN US</a>
+        </div>
+
+        <h1 class="reveal reveal-delay-2">BUILD. INNOVATE. LEAD.</h1>
+        <div class="subtitle reveal reveal-delay-3">ABS is an advanced business club at Lowell that teaches what school doesn’t — AI, stock analysis, entrepreneurship, <br> business, sales and the skills that actually matter after graduation.</div>
+    </main>
+
+    <section class="inquiry-section reveal">
+        <div class="section-label">START A CONVERSATION</div>
+        <div class="inquiry-layout">
+            <div class="inquiry-intro">
+                <h2>Tell us what you are interested in.</h2>
+                <p>Share a little context and we'll point you toward the right person, resource, or next step.</p>
+            </div>
+            <form class="inquiry-form" action="https://formsubmit.co/abslowellclub@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="New ABS website inquiry">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                <label for="name">Your name</label>
+                <input id="name" name="name" type="text" autocomplete="name" required>
+
+                <label for="email">Email address</label>
+                <input id="email" name="email" type="email" autocomplete="email" required>
+
+                <label for="message">What's on your mind?</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit">Send inquiry <span aria-hidden="true"></span></button>
+            </form>
+        </div>
+    </section>
+
+    <section class="channels-section reveal">
+        <div class="section-label">FIND YOUR WAY IN</div>
+        <div class="channel-list">
+            <button class="channel-item copy-email" type="button" data-email="abslowellclub@gmail.com"><span>Email</span><span>abslowellclub@gmail.com</span></button>
+            <a class="channel-item" href="https://www.instagram.com/abslowell29/"><span>Instagram</span><span>@abslowell29 </span></a>
+            <button class="channel-item copy-email" type="button" data-email="heqi@s.sfusd.edu"><span>Secondary Email</span><span>heqi@s.sfusd.edu</span></button>
+        </div>
+    </section>
+
+    <section class="faq-section reveal">
+        <div class="section-label">FAQ</div>
+        <div class="faq-list">
+            <details>
+                <summary>What happens after I reach out?</summary>
+                <p>We'll review your message and follow up with the most useful next step.</p>
+            </details>
+            <details>
+                <summary>Do I need a full plan before contacting you?</summary>
+                <p>No. A question, rough idea, or early goal is enough to start a conversation.</p>
+            </details>
+            <details>
+                <summary>Where can I find ABS?</summary>
+                <p>Reach out by email or through our social channels and we'll help you connect. You can also attend our weekly meetings at room X.</p>
+            </details>
+        </div>
+    </section>
+
+    <footer class="bottom-navbar">
+        <img class="footer-logo" src="ABS.png" alt="ABS Logo">
+        <div> 2026 Association of Business Sales</div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.copy-email').forEach(function (button) {
+            button.addEventListener('click', function () {
+                var email = this.dataset.email;
+                navigator.clipboard.writeText(email).then(function () {
+                    var label = button.lastElementChild;
+                    var originalLabel = label.textContent;
+                    label.textContent = 'Copied';
+                    setTimeout(function () {
+                        label.textContent = originalLabel;
+                    }, 1500);
+                });
+            });
+        });
+    </script>
+    <script src="./scroll-reveal.js"></script>
+    <script src="./page-transition.js"></script>
+</body>
+</html>
