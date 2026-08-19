@@ -347,6 +347,96 @@
     font-size: 14px;
 }
 
+@media (max-width: 700px) {
+    .calendar-page > .hero-section {
+        display: none;
+    }
+
+    .calendar-main {
+        width: calc(100% - 40px);
+    }
+
+    .calendar-intro {
+        padding: 64px 0 48px;
+    }
+
+    .calendar-intro h1 {
+        font-size: clamp(40px, 13vw, 62px);
+        line-height: 1.02;
+    }
+
+    .calendar-intro > p:last-child {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .calendar-layout {
+        grid-template-columns: 1fr;
+        gap: 54px;
+    }
+
+    .calendar-toolbar {
+        grid-template-columns: 38px 1fr 38px;
+        gap: 8px;
+        padding: 16px 0;
+    }
+
+    .calendar-toolbar h2 {
+        font-size: 18px;
+    }
+
+    .month-button {
+        width: 38px;
+        height: 38px;
+    }
+
+    .weekday-row {
+        font-size: 10px;
+    }
+
+    .calendar-day {
+        min-height: 52px;
+        padding: 7px;
+        font-size: 12px;
+    }
+
+    .calendar-day.has-event::after {
+        right: 6px;
+        bottom: 6px;
+        width: 5px;
+        height: 5px;
+    }
+
+    .event-panel {
+        padding-top: 20px;
+    }
+
+    .admin-panel {
+        margin-top: 70px;
+        padding-bottom: 64px;
+    }
+
+    .admin-heading {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .admin-heading h2 {
+        font-size: 28px;
+    }
+
+    .event-form {
+        grid-template-columns: 1fr;
+        margin-top: 28px;
+    }
+
+    .event-form textarea,
+    .event-form label[for="event-details"],
+    .form-actions {
+        grid-column: auto;
+    }
+}
+
 .calendar-footer img {
     width: 32px;
     height: 32px;
