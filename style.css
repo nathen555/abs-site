@@ -55,12 +55,6 @@ body {
     filter: invert(1);
 }
 
-.page-transition-copy strong {
-    font-size: clamp(42px, 8vw, 92px);
-    font-weight: 400;
-    letter-spacing: 0.08em;
-}
-
 .page-transition-copy span {
     margin-top: 12px;
     font-size: clamp(11px, 1.5vw, 18px);
@@ -357,6 +351,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .image {
+    position: relative;
     display: grid;
     grid-template-columns: 50vw 50vw;
     align-items: start;
@@ -366,6 +361,29 @@ h1, h2, h3, h4, h5, h6 {
     margin: 20px 0 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+.doodle-callout {
+    position: absolute;
+    top: -42px;
+    left: 8vw;
+    right: auto;
+    color: #b51d28;
+    font-family: "Comic Sans MS", "Bradley Hand", cursive;
+    font-size: 18px;
+    font-weight: 700;
+    transform: rotate(-5deg);
+}
+
+.doodle-callout::after {
+    content: "";
+    position: absolute;
+    left: 58px;
+    top: 25px;
+    width: 52px;
+    border-top: 2px solid #b51d28;
+    transform: rotate(62deg);
+    transform-origin: left center;
 }
 
 .line {
@@ -685,6 +703,20 @@ h1, h2, h3, h4, h5, h6 {
     .image {
         width: 100%;
         margin-top: 28px;
+    }
+
+    .doodle-callout {
+        position: relative;
+        top: auto;
+        right: auto;
+        justify-self: start;
+        margin: 0 0 10px 28px;
+        font-size: 16px;
+    }
+
+    .doodle-callout::after {
+        right: -28px;
+        top: 23px;
     }
 
     .line {
