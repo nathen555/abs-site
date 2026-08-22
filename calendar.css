@@ -175,10 +175,27 @@
     position: absolute;
     right: 10px;
     bottom: 10px;
-    width: 7px;
-    height: 7px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
-    background: #b51d28;
+    background: #e21f2f;
+    box-shadow: 0 0 0 3px rgba(226, 31, 47, 0.18), 0 0 12px rgba(226, 31, 47, 0.55);
+    animation: event-dot-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes event-dot-pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.18);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .calendar-day.has-event::after {
+        animation: none;
+    }
 }
 
 .event-panel {
