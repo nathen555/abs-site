@@ -161,6 +161,12 @@
     vertical-align: top;
 }
 
+.calendar-grid > span {
+    min-height: 78px;
+    border-right: 1px solid #e1e1e1;
+    border-bottom: 1px solid #e1e1e1;
+}
+
 .calendar-day:hover {
     background: #f1f1f1;
 }
@@ -398,6 +404,10 @@
         min-height: 52px;
         padding: 7px;
         font-size: 12px;
+    }
+
+    .calendar-grid > span {
+        min-height: 52px;
     }
 
     .calendar-day.has-event::after {
