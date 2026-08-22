@@ -3,9 +3,12 @@
     if (backgroundVideo) backgroundVideo.playbackRate = 0.75;
 
     var storageKey = 'abs-calendar-events';
+    var supabaseUrl = 'https://xvfbrnaronasuidmwdfc.supabase.co';
+    var supabaseKey = 'sb_publishable_BiFUXrYfF4wkKS4_w5g84Q_Y2Gx7ENX';
+    var supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
     var adminPassword = 'herostinky';
     var currentDate = new Date();
-    var events = loadEvents();
+    var events = [];
 
     var monthLabel = document.getElementById('month-label');
     var calendarGrid = document.getElementById('calendar-grid');
@@ -15,7 +18,7 @@
     var eventForm = document.getElementById('event-form');
     var adminToggle = document.getElementById('admin-toggle');
 
-    function loadEvents() {
+    function loadLocalEvents() {
         try {
             return JSON.parse(localStorage.getItem(storageKey)) || [];
         } catch (error) {
@@ -23,7 +26,49 @@
         }
     }
 
-    function saveEvents() {
+    async function loadEvents() {
+        var result = await supabaseClient
+            .from('calendar_events')
+            .select('id, date, title, time, details')
+            .order('date', { ascending: true });
+        if (result.error) throw result.error;
+
+        events = result.data.map(function (event) {
+            return {
+                id: event.id,
+                date: event.date,
+                title: event.title,
+                time: event.time || '',
+                details: event.details || ''
+            };
+        });
+
+        var localEvents = loadLocalEvents();
+        if (!events.length && localEvents.length) {
+            await saveEvents(localEvents);
+            events = localEvents;
+        }
+        localStorage.setItem(storageKey, JSON.stringify(events));
+    }
+
+    async function saveEvents(nextEvents) {
+        var rows = (nextEvents || events).map(function (event) {
+            return {
+                id: event.id,
+                date: event.date,
+                title: event.title,
+                time: event.time || null,
+                details: event.details || null
+            };
+        });
+        var result = await supabaseClient.from('calendar_events').upsert(rows);
+        if (result.error) throw result.error;
+        localStorage.setItem(storageKey, JSON.stringify(nextEvents || events));
+    }
+
+    async function deleteEvent(id) {
+        var result = await supabaseClient.from('calendar_events').delete().eq('id', id);
+        if (result.error) throw result.error;
         localStorage.setItem(storageKey, JSON.stringify(events));
     }
 
@@ -132,9 +177,10 @@
         var existingIndex = events.findIndex(function (item) { return item.id === id; });
         if (existingIndex >= 0) events[existingIndex] = data;
         else events.push(data);
-        saveEvents();
-        clearForm();
-        renderAll();
+        saveEvents().then(function () {
+            clearForm();
+            renderAll();
+        }).catch(showDatabaseError);
     });
 
     adminEvents.addEventListener('click', function (event) {
@@ -151,8 +197,7 @@
         }
         if (deleteId) {
             events = events.filter(function (savedEvent) { return savedEvent.id !== deleteId; });
-            saveEvents();
-            renderAll();
+            deleteEvent(deleteId).then(renderAll).catch(showDatabaseError);
         }
     });
 
@@ -188,5 +233,13 @@
         });
     }
 
-    renderAll();
+    function showDatabaseError(error) {
+        window.alert('The calendar could not be saved. Check the Supabase table and policies, then try again.');
+        console.error(error);
+    }
+
+    loadEvents().then(renderAll).catch(function (error) {
+        showDatabaseError(error);
+        renderAll();
+    });
 })();
